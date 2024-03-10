@@ -67,7 +67,7 @@ class TechnicolorGateway:
             _LOGGER.error("Authentication failed. Exception: %s", exception)
             _LOGGER.info("trying to simple authenticate")
             self._br.open(f'{self._uri}', method='POST',
-                          data={"username": self._user, "password": self._password})
+                          data={"username": self._user, "password": self._password}, verify=False)
             _LOGGER.debug("simple: br.response %s", self._br.response)
             if self._br.response.status_code == 200:
                 _LOGGER.info("simple authenticate success")
